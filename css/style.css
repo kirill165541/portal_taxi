@@ -1,0 +1,279 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box; 
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: #f2f2f2;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  min-width: 100%;
+  display: block;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.wrap-content {
+  position: relative;
+  /*display: flex;*/
+}
+
+.taxi {
+  width: 600px;
+  display: flex;
+  padding: 50px;
+  border-radius: 50%;
+  background-color: #0fe;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.9), 0 0 30px rgba(0, 255, 238, 1.0);
+  z-index: 1;
+}
+
+.taxi img {
+  z-index: 10;
+}
+
+.item {
+  position: absolute;
+  max-width: 150px;
+  display: flex;
+  align-items: center;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.add-employee {
+  top: 0;
+  left: 0;
+}
+
+.instruction {
+  top: 80%;
+  left: 10%;
+}
+
+.waiting {
+  top: 20%;
+  left: 85%;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip); /* Выводим текст */
+  padding: 7px;
+  font-family: arial;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #7f7d7d80;
+  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+.move {
+  animation: move 10s linear infinite;
+}
+
+.anti-move {
+  animation: antimove 10s linear infinite;
+}
+
+.animation-pause {
+  animation-play-state: paused;
+}
+
+#modal-add:target, #modal-instr:target, #modal-wait:target {
+  opacity: 1; /* делаем окно видимым */
+  pointer-events: auto; /* элемент видим для событий мыши */
+  overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+
+.blackout {
+  position: fixed; /* фиксированное положение */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5); /* цвет фона */
+  z-index: 50;
+  opacity: 0; /* по умолчанию модальное окно прозрачно */
+  -webkit-transition: opacity 200ms ease-in; 
+  -moz-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in; /* анимация перехода */
+  pointer-events: none; /* элемент невидим для событий мыши */
+  margin: 0;
+  padding: 0;
+}
+
+.modal-dialog {
+  position: relative;
+  width: 80%;
+  margin: 30px auto;
+  z-index: 51;
+}
+
+.modal-content {
+  position: relative;
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;
+}
+
+.modal-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eceeef;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+/* свойства для кнопки "Закрыть" */
+.close {
+  float: right;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  text-decoration: none;
+}
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .75;
+}
+
+.modal-body {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 15px;
+  overflow: auto;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes move {
+  0%{
+    transform:rotate(0deg);
+  }
+
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes antimove {
+    0%{
+    transform:rotate(0deg);
+  }
+
+  100%{
+    transform:rotate(-360deg);
+  }
+}

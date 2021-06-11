@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TAXI</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<section class="section">
+		<div class="wrap-content">
+			<div class="taxi">
+				<img src="img/taxi.svg" alt="taxi">
+			</div>
+			<a href="#modal-add"><div class="item add-employee" data-tooltip = "Добавить сотрудника">
+				<img src="img/add-employee.svg" alt="add-employee">
+			</div></a>
+			<a href="#modal-instr"><div class="item instruction" data-tooltip = "Инструкция">
+				<img src="img/instruction.svg" alt="instruction">
+			</div></a>
+			<a href="#modal-wait"><div class="item waiting" data-tooltip = "Платное ожидание">
+				<img src="img/waiting.svg" alt="waiting">
+			</div></a>
+		</div>
+	</section>
+	<div class="blackout" id="modal-add">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Внесение в список</h3>
+        			<a href="#" title="Close" class="close">×</a>
+				</div>
+				<div class="modal-body">
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="blackout" id="modal-instr">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Инструкция</h3>
+        			<a href="#" title="Close" class="close">×</a>
+				</div>
+				<div class="modal-body">
+						
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="blackout" id="modal-wait">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Платное ожидание</h3>
+        			<a href="#" title="Close" class="close">×</a>
+				</div>
+				<div class="modal-body">
+						
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+</html>
