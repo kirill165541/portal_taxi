@@ -1,7 +1,5 @@
 (function main() {
-	// let desct = document.querySelectorAll(".desct");
 	let item = document.querySelectorAll(".item");
-	// let icons = document.querySelectorAll(".item img");
 	let taxi = document.querySelector(".taxi img");
 	let body = document.querySelector("body");
 	let wrapContent = document.querySelector(".wrap-content");
